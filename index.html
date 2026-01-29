@@ -3,202 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أثر - قهوة مصرية فاخرة</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>قيراط - أصل المزاج المصري</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-gold: #d4af37;
-            --dark-coffee: #1a0f0a;
-            --light-coffee: #3e2723;
+            --gold: #d4af37;
+            --dark-brown: #2c1e12;
+            --black: #1a110a;
             --white: #ffffff;
-            --bg-gradient: linear-gradient(135deg, #1a0f0a 0%, #3e2723 100%);
+            --light-brown: #4e3629;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
         }
-
         body {
-            background-color: var(--dark-coffee);
+            font-family: "Cairo", sans-serif;
+            background-color: var(--black);
             color: var(--white);
             line-height: 1.6;
         }
-
         header {
-            padding: 20px 10%;
+            background: rgba(26, 17, 10, 0.95);
+            padding: 15px 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(26, 15, 10, 0.95);
-            position: sticky;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
         }
-
         .logo-container {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-
         .logo-img {
-            width: 50px;
             height: 50px;
-            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
         }
-
-        .brand-name {
+        .brand-name-text {
             font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--primary-gold);
+            font-weight: 700;
+            color: var(--gold);
             letter-spacing: 1px;
         }
-
         .hero {
-            height: 90vh;
-            background: var(--bg-gradient);
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), linear-gradient(135deg, var(--dark-brown) 0%, var(--black) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 10%;
-            position: relative;
-            overflow: hidden;
         }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
-            top: -50%;
-        }
-
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
+            font-size: 4.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(to bottom, #fff, #d4af37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--gold);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
         }
-
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
+            font-size: 1.6rem;
+            max-width: 800px;
             margin-bottom: 40px;
-            color: #ccc;
+            color: #e0e0e0;
         }
-
-        .cta-button {
-            padding: 15px 45px;
-            background: var(--primary-gold);
-            color: var(--dark-coffee);
+        .cta-btn {
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            background: linear-gradient(45deg, var(--gold), #f3cf7a);
+            color: var(--black);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
             text-decoration: none;
             font-weight: 700;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            font-size: 1.1rem;
         }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
-            background: #fff;
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+            background: var(--white);
         }
-
         .features {
             padding: 100px 10%;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            background: #110906;
+            gap: 40px;
+            background-color: var(--white);
         }
-
         .card {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 50px 30px;
+            text-align: center;
+            background: var(--white);
             border-radius: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            transition: 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
-
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gold);
+        }
         .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-gold);
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
         }
-
         .card h3 {
-            color: var(--primary-gold);
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 2rem;
+            color: var(--dark-brown);
+            margin-bottom: 20px;
         }
-
         .card p {
-            color: #aaa;
-            font-size: 0.95rem;
-        }
-
-        footer {
-            padding: 40px 10%;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            background: var(--dark-coffee);
+            font-size: 1.1rem;
             color: #666;
-            font-size: 0.9rem;
         }
-
+        footer {
+            padding: 50px;
+            text-align: center;
+            background: var(--black);
+            color: var(--gold);
+            border-top: 1px solid var(--light-brown);
+        }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            header {
-                padding: 15px 5%;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
+            .features { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo-container">
-            <img src="https://pollinations.ai/p/Minimalist%20vector%20logo%20featuring%20a%20stylized%20golden%20coffee%20bean%20subtly%20merging%20with%20an%20Egyptian%20Pharaonic%20lotus%20flower%20symbol%2C%20elegant%20thin%20lines%2C%20luxury%20aesthetic%2C%20white%20background%2C%20high%20contrast%2C%20professional%20typography.?width=1024&height=1024&seed=42&model=flux" alt="Brand Logo" class="logo-img">
-            <span class="brand-name">أثر</span>
+            <img src="https://pollinations.ai/p/Minimalist%20vector%20logo%2C%20a%20coffee%20bean%20integrated%20with%20an%20ancient%20Egyptian%20key%20of%20life%20(Ankh)%20symbol%20in%20a%20modern%20thin-line%20style%2C%20golden%20metallic%20finish%2C%20isolated%20on%20a%20white%20background%2C%20luxury%20branding.?width=1024&height=1024&seed=42&model=flux" alt="Brand Logo" class="logo-img">
+            <span class="brand-name-text">قِيرَاط</span>
         </div>
     </header>
 
     <section class="hero">
-        <h1>اترك أثراً في يومك</h1>
-        <p>تجربة القهوة المصرية الفاخرة التي تجمع بين عبق التاريخ وسحر المذاق العالمي. حبوب مختارة بعناية وتحميص يدوي يضمن لك النكهة الأقوى.</p>
-        <a href="#" class="cta-button">اطلب الآن</a>
+        <h1>قيراط.. وزن المزاج الصح</h1>
+        <p>استمتع بتوليفة فريدة تجمع بين أصالة التحميص المصري وأجود أنواع البن العالمي. صُنعت يدوياً لتبدأ يومك بتركيز ملكي.</p>
+        <a href="#" class="cta-btn">اطلب الآن</a>
     </section>
 
     <section class="features">
         <div class="card">
-            <h3>تحميص احترافي</h3>
-            <p>نستخدم درجات حرارة دقيقة لإبراز النوتات العطرية الكامنة في كل حبة بن.</p>
+            <h3>تحميص يدوي</h3>
+            <p>كل حبة بن بتمر بمراحل تحميص دقيقة في معاملنا بالقاهرة عشان نضمن لك نكهة غنية ومستقرة في كل فنجان.</p>
         </div>
         <div class="card">
-            <h3>جودة عالمية</h3>
-            <p>نستورد أفضل أنواع البن من كولومبيا وإثيوبيا لنقدمها لك بخلطة مصرية سرية.</p>
+            <h3>توليفة خاصة</h3>
+            <p>خلطة "قيراط" السرية بتجمع بين حبوب الأرابيكا الفاخرة ونفحات الهيل الحبشي الأصيل لمذاق ملوش بديل.</p>
         </div>
         <div class="card">
-            <h3>طعم لا يُنسى</h3>
-            <p>قوام كثيف، رغوة غنية، ومذاق يتدرج من الشوكولاتة الداكنة إلى الكراميل.</p>
+            <h3>تراث مصري</h3>
+            <p>قهوتنا مش مجرد مشروب، دي ثقافة وتاريخ مصري بنقدمه في صورة عصرية تليق بمقامك.</p>
         </div>
     </section>
 
     <footer>
-        &copy; 2024 جميع الحقوق محفوظة لبراند أثر - صنع بشغف في مصر
+        <p>© 2024 جميع الحقوق محفوظة لبراند قيراط - Qirat Coffee</p>
     </footer>
-
 </body>
 </html>
