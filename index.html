@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قهوة زمان</title>
+    <title>مزرعة الخير - لحوم فاخرة</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700&family=Tajawal:wght@200;300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #f8f3e9; /* لون خلفية مائل للبيج */
-            color: #5a3e36; /* لون بني داكن للنصوص */
+            background-color: #f8f9fa;
+            color: #333;
         }
         .navbar {
-            background-color: #fffaf0; /* لون كريمي فاتح للنافي بار */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: #5a3e36; /* بني داكن */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .nav-link {
-            color: #5a3e36 !important;
-            font-weight: 500;
+        .navbar-brand img {
+            height: 50px;
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 700;
+            padding: 10px 15px;
             transition: color 0.3s ease;
         }
-        .nav-link:hover {
-            color: #c0a062 !important; /* لون ذهبي فاتح عند المرور */
+        .navbar-nav .nav-link:hover {
+            color: #e0c29e !important; /* ذهبي فاتح */
         }
         .hero-section {
-            background: linear-gradient(rgba(90, 62, 54, 0.7), rgba(90, 62, 54, 0.7)), url('https://images.unsplash.com/photo-1507133810760-b2b89881a887?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* صورة خلفية مع تدرج لون بني */
+            background: linear-gradient(rgba(90, 62, 54, 0.7), rgba(90, 62, 54, 0.7)), url('https://images.unsplash.com/photo-1598167656788-4324c342073b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* صورة لحوم أو مزرعة */
             background-size: cover;
             background-position: center;
-            height: 70vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -39,34 +43,52 @@
         .hero-section h1 {
             font-size: 4rem;
             margin-bottom: 20px;
-            color: #fffaf0; /* لون كريمي فاتح للعناوين */
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            color: #e0c29e; /* ذهبي فاتح */
         }
         .hero-section p {
             font-size: 1.5rem;
-            color: #fffaf0;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
         }
-        .about-section, .menu-section, .testimonials-section {
-            padding: 80px 0;
+        .btn-custom {
+            background-color: #e0c29e; /* ذهبي فاتح */
+            color: #5a3e36; /* بني داكن */
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #5a3e36; /* بني داكن */
+            color: #e0c29e; /* ذهبي فاتح */
+            transform: translateY(-3px);
         }
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: #5a3e36;
+            font-size: 3rem;
+            color: #5a3e36; /* بني داكن */
             font-weight: 700;
+        }
+        .about-section, .services-section, .testimonials-section {
+            padding: 80px 0;
+        }
+        .about-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .card {
             border: none;
-            background-color: #fffaf0; /* لون كريمي فاتح للبطاقات */
             border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(90, 62, 54, 0.1);
         }
         .card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(90, 62, 54, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         .card-img-top {
             border-top-left-radius: 10px;
@@ -76,68 +98,55 @@
         }
         .card-body {
             padding: 20px;
-            text-align: center;
         }
         .card-title {
             font-size: 1.5rem;
-            color: #5a3e36;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        .card-text {
-            font-size: 1.1rem;
-            color: #776053; /* لون بني أفتح قليلاً للنصوص */
+            font-weight: 700;
+            color: #5a3e36; /* بني داكن */
         }
         .testimonial-card {
-            background-color: #fffaf0;
-            border: none;
+            background-color: #fff;
             border-radius: 10px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(90, 62, 54, 0.1);
-            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .testimonial-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            border: 3px solid #c0a062; /* حدود ذهبية */
+        .testimonial-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         .testimonial-card p {
             font-style: italic;
-            color: #776053;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
         }
-        .testimonial-card strong {
-            color: #5a3e36;
-            font-size: 1.2rem;
-            display: block;
-            margin-top: 10px;
+        .testimonial-card .author {
+            font-weight: 700;
+            color: #5a3e36; /* بني داكن */
         }
         .footer {
-            background-color: #5a3e36; /* لون بني داكن للفور */
-            color: #fffaf0; /* لون كريمي فاتح للنصوص */
-            padding: 50px 0;
+            background-color: #5a3e36; /* بني داكن */
+            color: #fff;
+            padding: 40px 0;
             text-align: center;
         }
         .footer a {
-            color: #c0a062 !important;
+            color: #e0c29e; /* ذهبي فاتح */
             text-decoration: none;
             transition: color 0.3s ease;
         }
         .footer a:hover {
-            color: #fff !important;
+            color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://pollinations.ai/p/Logo%20for%20a%20coffee%20brand%20named%20'%D9%82%D9%87%D9%88%D8%A9%20%D8%B2%D9%85%D8%A7%D9%86'%20(Qahwa%20Zaman).%20The%20logo%20should%20evoke%20a%20sense%20of%20nostalgia%20and%20tradition%2C%20with%20a%20touch%20of%20modern%20elegance.%20Imagine%20a%20classic%20coffee%20cup%20silhouette%20intertwined%20with%20subtle%20elements%20of%20historical%20Arabic%20calligraphy%20or%20patterns.%20The%20color%20palette%20should%20be%20warm%20browns%2C%20deep%20golds%2C%20and%20perhaps%20a%20hint%20of%20cream%20or%20antique%20white.%20The%20font%20for%20the%20brand%20name%20should%20be%20a%20stylish%20Arabic%20font%2C%20perhaps%20reminiscent%20of%20older%20scripts%20but%20legible.%20The%20overall%20feel%20should%20be%20sophisticated%20and%20inviting.?width=1024&height=1024&seed=42&model=flux" alt="Logo" style="height: 60px;">
+                <img src="https://pollinations.ai/p/A%20minimalist%20logo%20featuring%20a%20stylized%2C%20abstract%20cow%20silhouette%20formed%20from%20elegant%2C%20flowing%20lines.%20The%20cow%20should%20be%20a%20rich%2C%20dark%20brown%2C%20set%20against%20a%20background%20that%20subtly%20transitions%20from%20a%20warm%20golden%20yellow%20to%20a%20deep%20earthy%20green.%20The%20overall%20feel%20should%20be%20premium%2C%20natural%2C%20and%20trustworthy.?width=1024&height=1024&seed=42&model=flux" alt="مزرعة الخير Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -151,154 +160,124 @@
                         <a class="nav-link" href="#about">قصتنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#menu">قائمتنا</a>
+                        <a class="nav-link" href="#services">قائمة اللحوم</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">آراء عملائنا</a>
+                        <a class="nav-link" href="#testimonials">آراء العملاء</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <div data-aos="fade-up" data-aos-duration="1500">
-                <h1>قهوة زمان</h1>
-                <p>حكاية كل فنجان... رحلة عبر الزمن</p>
-            </div>
+    <header id="hero" class="hero-section">
+        <div class="container" data-aos="fade-in">
+            <h1>مزرعة الخير: طعم الأصالة في كل قطعة</h1>
+            <p>لحوم طازجة، جودة لا تضاهى، تجربة لا تُنسى.</p>
+            <a href="#services" class="btn btn-custom">اكتشف قائمتنا</a>
         </div>
-    </section>
+    </header>
 
-    <!-- About/Story Section -->
     <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">قصتنا</h2>
+            <h2 class="section-title" data-aos="fade-up">قصتنا: من المزرعة إلى مائدتك</h2>
             <div class="row align-items-center">
-                <div class="col-md-6" data-aos="fade-right" data-aos-duration="1200">
-                    <p style="font-size: 1.2rem; line-height: 1.8;">
-                        في "قهوة زمان"، نحن لا نبيع القهوة فحسب، بل نقدم تجربة أصيلة تنبض بروح الماضي. بدأت قصتنا بشغف عميق بأسرار القهوة العربية الأصيلة، ورغبة في إعادة إحياء تقاليد تحضيرها التي كانت تجمع الأهل والأصدقاء. نؤمن بأن كل فنجان قهوة يجب أن يحمل معه قصة، ذكرى، ولحظة مميزة. لذلك، نحرص على اختيار أجود حبوب البن من أفضل المزارع حول العالم، ونعمل على تحميصها بعناية فائقة، وطحنها بالطريقة التقليدية لنضمن لك نكهة غنية وأصيلة تعود بك إلى أيام زمان. انضم إلينا في هذه الرحلة الحسية، ودع "قهوة زمان" تكون جزءاً من لحظاتك الثمينة.
-                    </p>
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1587046119275-ca3e0387b409?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="مزرعة الخير">
                 </div>
-                <div class="col-md-6 text-center" data-aos="fade-left" data-aos-duration="1200">
-                    <img src="https://images.unsplash.com/photo-1559415642-084323b32289?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Our Story Image" class="img-fluid rounded-3" style="max-height: 400px; width: auto;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services/Menu Section -->
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">قائمتنا</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1511920170037-61c48c6467ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img-top" alt="Espresso">
-                        <div class="card-body">
-                            <h5 class="card-title">اسبريسو زمان</h5>
-                            <p class="card-text">نكهة مركزة وقوية، بداية مثالية ليومك. محضرة من أجود حبوب البن المحمصة بعناية.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Cappuccino">
-                        <div class="card-body">
-                            <h5 class="card-title">كابتشينو الأصيل</h5>
-                            <p class="card-text">مزيج مثالي من قهوة الإسبريسو الغنية، الحليب المبخر، والرغوة الناعمة.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71c172d460?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Latte">
-                        <div class="card-body">
-                            <h5 class="card-title">لاتيه الحنين</h5>
-                            <p class="card-text">قهوة إسبريسو ممزوجة بالحليب الدافئ، بلمسة من الحلاوة والفانيلا.</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1518098268026-4e33856c18da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Turkish Coffee">
-                        <div class="card-body">
-                            <h5 class="card-title">قهوة تركية تقليدية</h5>
-                            <p class="card-text">تجربة غنية بالنكهة والتراث، محضرة بأسلوب تقليدي أصيل.</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col" data-aos="fade-up" data-aos-delay="500">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1509730439060-b4a21f853a37?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Cold Brew">
-                        <div class="card-body">
-                            <h5 class="card-title">قهوة باردة منعشة</h5>
-                            <p class="card-text">مزيج فريد من القهوة الباردة، مثالي للأيام الحارة.</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col" data-aos="fade-up" data-aos-delay="600">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1550037106-66611957b905?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" class="card-img-top" alt="Specialty Coffee">
-                        <div class="card-body">
-                            <h5 class="card-title">قهوة اليوم الخاصة</h5>
-                            <p class="card-text">اكتشف نكهاتنا الموسمية المميزة، حضرها خبراؤنا.</p>
-                        </div>
-                    </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <p class="lead">في مزرعة الخير، نؤمن بأن أفضل اللحوم تبدأ بأفضل الرعاية. نشأنا على حب الأرض والحيوان، ملتزمين بتقديم لحوم طبيعية 100%، خالية من الإضافات، وتم تربيتها في بيئة صحية ونظيفة. كل قطعة لحم تحمل في طياتها شغفنا بالجودة وتقديرنا لثقة عملائنا. نحن لسنا مجرد بائعين للحوم، بل سفراء للطعم الأصيل والنكهة الطبيعية التي تعيد تعريف تجربة تناول الطعام.</p>
+                    <p>نحرص على اختيار أفضل السلالات، وتوفير غذاء متوازن، ومتابعة دقيقة لكل مراحل التربية، لضمان وصول أجود أنواع اللحوم إليكم.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section" style="background-color: #fffaf0;">
+    <section id="services" class="services-section bg-light">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">آراء عملائنا</h2>
+            <h2 class="section-title" data-aos="fade-up">قائمة لحومنا الفاخرة</h2>
             <div class="row">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-card">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer 1">
-                        <p>"أجمل قهوة شربتها في حياتي! نكهة أصيلة وخدمة رائعة."</p>
-                        <strong>سارة علي</strong>
+                <div class="col-md-4 mb-4">
+                    <div class="card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="لحم بقري مشوي">
+                        <div class="card-body">
+                            <h5 class="card-title">لحم بقري فاخر</h5>
+                            <p class="card-text">قطع مختارة بعناية، مثالية للشوي والطبخ، بنكهة غنية وقوام لا يُقاوم.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-card">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer 2">
-                        <p>"قهوة زمان أعادتني لأيام الجامعة، طعم لا يُنسى."</p>
-                        <strong>أحمد خالد</strong>
+                <div class="col-md-4 mb-4">
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1604908646724-1615c67e188a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="لحم ضأن مشوي">
+                        <div class="card-body">
+                            <h5 class="card-title">لحم ضأن طري</h5>
+                            <p class="card-text">لحم ضأن بلدي طازج، يتميز بنعومته الفائقة وطعمه المعتدل، مثالي لمختلف الأطباق.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-card">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer 3">
-                        <p>"من أفضل المقاهي التي زرتها، الهدوء والجودة في مكان واحد."</p>
-                        <strong>فاطمة الزهراء</strong>
+                <div class="col-md-4 mb-4">
+                    <div class="card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1583016910732-e2a977f23b59?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="لحم مفروم">
+                        <div class="card-body">
+                            <h5 class="card-title">لحوم مفرومة ممتازة</h5>
+                            <p class="card-text">لحوم مفرومة طازجة، محضرة من أجود القطع، لتضفي نكهة استثنائية على أطباقكم.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">ماذا يقول عملاؤنا؟</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                        <p>"جودة اللحم من مزرعة الخير لا تضاهى! طازج، طري، والطعم خيالي. أوصي به بشدة!"</p>
+                        <div class="author">- أحمد علي</div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                        <p>"أفضل لحم جربته على الإطلاق. تفاجأت بالجودة والسعر المناسب. الخدمة رائعة أيضاً."</p>
+                        <div class="author">- سارة محمود</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 قهوة زمان. جميع الحقوق محفوظة.</p>
-            <p>
-                تابعنا على: 
-                <a href="#">فيسبوك</a> | 
-                <a href="#">انستجرام</a> | 
-                <a href="#">تويتر</a>
-            </p>
-            <p>
-                اتصل بنا: <a href="tel:+20123456789">+20 123 456789</a>
-            </p>
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>مزرعة الخير</h5>
+                    <p>نقدم لكم أجود أنواع اللحوم الطازجة، بجودة تضمن لكم تجربة طعام لا تُنسى.</p>
+                </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>روابط سريعة</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#hero">الرئيسية</a></li>
+                        <li><a href="#about">قصتنا</a></li>
+                        <li><a href="#services">قائمة اللحوم</a></li>
+                        <li><a href="#testimonials">آراء العملاء</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>تواصل معنا</h5>
+                    <p>الرياض، المملكة العربية السعودية</p>
+                    <p>البريد الإلكتروني: info@mazraatalkhair.com</p>
+                    <p>الهاتف: +966 11 234 5678</p>
+                </div>
+            </div>
+            <hr style="border-color: #e0c29e;">
+            <p>&copy; 2023 مزرعة الخير. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init({
             duration: 1000,
