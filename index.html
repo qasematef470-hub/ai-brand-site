@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مزرعة الخير - لحوم فاخرة</title>
+    <title>لحوم الفراعنة</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600&family=Tajawal:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -14,139 +14,147 @@
             color: #333;
         }
         .navbar {
-            background-color: #5a3e36; /* بني داكن */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #8B4513; /* بني داكن */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .navbar-brand img {
-            height: 50px;
+            height: 40px;
         }
-        .navbar-nav .nav-link {
+        .nav-link {
             color: #fff !important;
-            font-weight: 700;
-            padding: 10px 15px;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
-        .navbar-nav .nav-link:hover {
-            color: #e0c29e !important; /* ذهبي فاتح */
+        .nav-link:hover {
+            color: #DAA520 !important; /* ذهبي */
         }
-        .hero-section {
-            background: linear-gradient(rgba(90, 62, 54, 0.7), rgba(90, 62, 54, 0.7)), url('https://images.unsplash.com/photo-1598167656788-4324c342073b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); /* صورة لحوم أو مزرعة */
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
+        .hero {
+            background-color: #DAA520; /* ذهبي */
+            color: #fff;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #fff;
+            position: relative;
+            overflow: hidden;
         }
-        .hero-section h1 {
+        .hero h1 {
             font-size: 4rem;
-            margin-bottom: 20px;
-            color: #e0c29e; /* ذهبي فاتح */
-        }
-        .hero-section p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-        }
-        .btn-custom {
-            background-color: #e0c29e; /* ذهبي فاتح */
-            color: #5a3e36; /* بني داكن */
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
             font-weight: 700;
-            border-radius: 5px;
-            transition: all 0.3s ease;
         }
-        .btn-custom:hover {
-            background-color: #5a3e36; /* بني داكن */
-            color: #e0c29e; /* ذهبي فاتح */
-            transform: translateY(-3px);
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: #8B4513; /* بني داكن */
+            border-color: #8B4513;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.1rem;
+        }
+        .btn-primary:hover {
+            background-color: #5a2d0a; /* بني أغمق */
+            border-color: #5a2d0a;
+        }
+        section {
+            padding: 60px 0;
         }
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
-            font-size: 3rem;
-            color: #5a3e36; /* بني داكن */
+            margin-bottom: 40px;
+            font-size: 2.5rem;
             font-weight: 700;
+            color: #8B4513;
         }
-        .about-section, .services-section, .testimonials-section {
-            padding: 80px 0;
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
-        .about-section img {
-            max-width: 100%;
-            height: auto;
+        .about-content div {
+            flex: 1;
+            padding: 20px;
+        }
+        .about-text h2 {
+            color: #DAA520;
+            margin-bottom: 20px;
+        }
+        .menu-card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
         }
-        .card:hover {
+        .menu-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
-        .card-img-top {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+        .menu-card img {
+            width: 100%;
             height: 200px;
             object-fit: cover;
         }
-        .card-body {
+        .menu-card-body {
             padding: 20px;
-        }
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #5a3e36; /* بني داكن */
-        }
-        .testimonial-card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 30px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .testimonial-card:hover {
-             transform: translateY(-5px);
-             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        .menu-card-body h5 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
-        .testimonial-card p {
-            font-style: italic;
+        .testimonials {
+            background-color: #8B4513;
+            color: #fff;
+        }
+        .testimonial-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.1);
             margin-bottom: 20px;
-            color: #555;
         }
-        .testimonial-card .author {
-            font-weight: 700;
-            color: #5a3e36; /* بني داكن */
+        .testimonial-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #DAA520;
         }
-        .footer {
-            background-color: #5a3e36; /* بني داكن */
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .testimonial-item strong {
+            color: #DAA520;
+        }
+        footer {
+            background-color: #5a2d0a; /* بني أغمق */
             color: #fff;
             padding: 40px 0;
             text-align: center;
         }
-        .footer a {
-            color: #e0c29e; /* ذهبي فاتح */
+        footer a {
+            color: #DAA520;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
-        .footer a:hover {
-            color: #fff;
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://pollinations.ai/p/A%20minimalist%20logo%20featuring%20a%20stylized%2C%20abstract%20cow%20silhouette%20formed%20from%20elegant%2C%20flowing%20lines.%20The%20cow%20should%20be%20a%20rich%2C%20dark%20brown%2C%20set%20against%20a%20background%20that%20subtly%20transitions%20from%20a%20warm%20golden%20yellow%20to%20a%20deep%20earthy%20green.%20The%20overall%20feel%20should%20be%20premium%2C%20natural%2C%20and%20trustworthy.?width=1024&height=1024&seed=42&model=flux" alt="مزرعة الخير Logo">
+                <img src="https://pollinations.ai/p/A%20majestic%20pharaoh's%20headdress%20with%20stylized%20meat%20cleavers%20integrated%20into%20the%20design%2C%20in%20rich%20earthy%20tones%20with%20a%20hint%20of%20gold%2C%20set%20against%20a%20dark%20background.%20The%20style%20should%20be%20regal%20and%20slightly%20abstract%2C%20evoking%20both%20tradition%20and%20premium%20quality.?width=1024&height=1024&seed=42&model=flux" alt="Logo" style="height: 60px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -160,7 +168,7 @@
                         <a class="nav-link" href="#about">قصتنا</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">قائمة اللحوم</a>
+                        <a class="nav-link" href="#menu">قائمتنا</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#testimonials">آراء العملاء</a>
@@ -170,109 +178,106 @@
         </div>
     </nav>
 
-    <header id="hero" class="hero-section">
-        <div class="container" data-aos="fade-in">
-            <h1>مزرعة الخير: طعم الأصالة في كل قطعة</h1>
-            <p>لحوم طازجة، جودة لا تضاهى، تجربة لا تُنسى.</p>
-            <a href="#services" class="btn btn-custom">اكتشف قائمتنا</a>
+    <header id="hero" class="hero">
+        <div class="container text-center">
+            <h1 data-aos="fade-up">لحوم الفراعنة</h1>
+            <p data-aos="fade-up" data-aos-delay="200">جودة أصيلة، نكهة لا تُقاوم.</p>
+            <a href="#menu" class="btn btn-primary btn-lg" data-aos="fade-up" data-aos-delay="400">اكتشف قائمتنا</a>
         </div>
     </header>
 
-    <section id="about" class="about-section">
+    <section id="about">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">قصتنا: من المزرعة إلى مائدتك</h2>
-            <div class="row align-items-center">
+            <h2 class="section-title">قصتنا</h2>
+            <div class="about-content">
                 <div class="col-md-6" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1587046119275-ca3e0387b409?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="مزرعة الخير">
+                    <img src="https://via.placeholder.com/500x400/8B4513/FFFFFF?text=About+Us" alt="About Us" class="img-fluid rounded">
                 </div>
-                <div class="col-md-6" data-aos="fade-left">
-                    <p class="lead">في مزرعة الخير، نؤمن بأن أفضل اللحوم تبدأ بأفضل الرعاية. نشأنا على حب الأرض والحيوان، ملتزمين بتقديم لحوم طبيعية 100%، خالية من الإضافات، وتم تربيتها في بيئة صحية ونظيفة. كل قطعة لحم تحمل في طياتها شغفنا بالجودة وتقديرنا لثقة عملائنا. نحن لسنا مجرد بائعين للحوم، بل سفراء للطعم الأصيل والنكهة الطبيعية التي تعيد تعريف تجربة تناول الطعام.</p>
-                    <p>نحرص على اختيار أفضل السلالات، وتوفير غذاء متوازن، ومتابعة دقيقة لكل مراحل التربية، لضمان وصول أجود أنواع اللحوم إليكم.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="services-section bg-light">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">قائمة لحومنا الفاخرة</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="لحم بقري مشوي">
-                        <div class="card-body">
-                            <h5 class="card-title">لحم بقري فاخر</h5>
-                            <p class="card-text">قطع مختارة بعناية، مثالية للشوي والطبخ، بنكهة غنية وقوام لا يُقاوم.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://images.unsplash.com/photo-1604908646724-1615c67e188a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="لحم ضأن مشوي">
-                        <div class="card-body">
-                            <h5 class="card-title">لحم ضأن طري</h5>
-                            <p class="card-text">لحم ضأن بلدي طازج، يتميز بنعومته الفائقة وطعمه المعتدل، مثالي لمختلف الأطباق.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://images.unsplash.com/photo-1583016910732-e2a977f23b59?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="لحم مفروم">
-                        <div class="card-body">
-                            <h5 class="card-title">لحوم مفرومة ممتازة</h5>
-                            <p class="card-text">لحوم مفرومة طازجة، محضرة من أجود القطع، لتضفي نكهة استثنائية على أطباقكم.</p>
-                        </div>
-                    </div>
+                <div class="col-md-6 about-text" data-aos="fade-left">
+                    <h2>من قلب الأرض إلى مائدتك</h2>
+                    <p>بدأت قصة 'لحوم الفراعنة' من شغف عميق بالجودة والتقاليد الأصيلة. نؤمن بأن أفضل لحم يبدأ من اختيار دقيق للمصادر، ورعاية لا تشوبها شائبة، لضمان وصول أجود المنتجات إلى عملائنا. خبرتنا المتوارثة وحبنا لما نقدمه هو سر تميزنا.</p>
+                    <p>نحن لا نبيع اللحم فقط، بل نقدم تجربة طعام فريدة، تجمع بين النكهة الغنية والقيمة الغذائية العالية. تذوق الفرق مع 'لحوم الفراعنة'.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials-section">
+    <section id="menu">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">ماذا يقول عملاؤنا؟</h2>
+            <h2 class="section-title">قائمتنا</h2>
             <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                        <p>"جودة اللحم من مزرعة الخير لا تضاهى! طازج، طري، والطعم خيالي. أوصي به بشدة!"</p>
-                        <div class="author">- أحمد علي</div>
+                <div class="col-md-4">
+                    <div class="menu-card" data-aos="fade-up">
+                        <img src="https://via.placeholder.com/400x300/DAA520/FFFFFF?text=لحم+بقري" alt="لحم بقري">
+                        <div class="menu-card-body">
+                            <h5>لحم بقري فاخر</h5>
+                            <p>أجود قطع اللحم البقري الطازج، مثالي للشواء والطبخ.</p>
+                            <a href="#" class="btn btn-outline-dark">اطلب الآن</a>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                        <p>"أفضل لحم جربته على الإطلاق. تفاجأت بالجودة والسعر المناسب. الخدمة رائعة أيضاً."</p>
-                        <div class="author">- سارة محمود</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>مزرعة الخير</h5>
-                    <p>نقدم لكم أجود أنواع اللحوم الطازجة، بجودة تضمن لكم تجربة طعام لا تُنسى.</p>
-                </div>
-                <div class="col-md-4 mb-3 mb-md-0">
-                    <h5>روابط سريعة</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#hero">الرئيسية</a></li>
-                        <li><a href="#about">قصتنا</a></li>
-                        <li><a href="#services">قائمة اللحوم</a></li>
-                        <li><a href="#testimonials">آراء العملاء</a></li>
-                    </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5>تواصل معنا</h5>
-                    <p>الرياض، المملكة العربية السعودية</p>
-                    <p>البريد الإلكتروني: info@mazraatalkhair.com</p>
-                    <p>الهاتف: +966 11 234 5678</p>
+                    <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://via.placeholder.com/400x300/8B4513/FFFFFF?text=لحم+ضاني" alt="لحم ضاني">
+                        <div class="menu-card-body">
+                            <h5>لحم ضاني مميز</h5>
+                            <p>لحم ضاني طازج بنكهة غنية، مثالي للمناسبات الخاصة.</p>
+                            <a href="#" class="btn btn-outline-dark">اطلب الآن</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://via.placeholder.com/400x300/5a2d0a/FFFFFF?text=دواجن" alt="دواجن">
+                        <div class="menu-card-body">
+                            <h5>دواجن طازجة</h5>
+                            <p>دواجن محلية عالية الجودة، طعم يرضي جميع الأذواق.</p>
+                            <a href="#" class="btn btn-outline-dark">اطلب الآن</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr style="border-color: #e0c29e;">
-            <p>&copy; 2023 مزرعة الخير. جميع الحقوق محفوظة.</p>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">آراء عملائنا</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-item" data-aos="fade-up">
+                        <img src="https://via.placeholder.com/80/cccccc/333?text=ع" alt="عميل 1">
+                        <p>أفضل لحم جربته في حياتي! الطعم خرافي والجودة لا يعلى عليها.</p>
+                        <strong>أحمد محمود</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://via.placeholder.com/80/cccccc/333?text=س" alt="عميلة 1">
+                        <p>لحوم الفراعنة دايماً الاختيار الأول لعائلتي. دايماً طازجة ولذيذة.</p>
+                        <strong>سارة علي</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://via.placeholder.com/80/cccccc/333?text=م" alt="عميل 2">
+                        <p>خدمة ممتازة وسرعة في التوصيل. اللحم كان رائعاً بكل معنى الكلمة.</p>
+                        <strong>مصطفى كامل</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 لحوم الفراعنة. جميع الحقوق محفوظة.</p>
+            <p>تواصل معنا: <a href="mailto:info@alahrammeat.com">info@alahrammeat.com</a> | <a href="tel:+201001234567">01001234567</a></p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </footer>
 
@@ -284,5 +289,6 @@
             once: true
         });
     </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
